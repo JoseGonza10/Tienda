@@ -1,0 +1,17 @@
+p {
+    color: red;
+}
+
+h1, h2, h3{
+    color: orange;
+    font: sans-serif;
+}
+
+ul li #elPremio{
+    font: cursive;
+}
+
+.CarroFino{
+    font:strong;
+    color:blue;
+}
