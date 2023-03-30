@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="" th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css"/>       
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+        <h1>Listado de facturas</h1>
+        <div th if="${facturas != null and !facturas.empty}">
+            <table border ="1">
+                <thead>
+                    <tr>
+                        <th>Id de factura</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="factura : ${facturas}">
+                        <td th:text="${factura.id_factura}"></td>
+                        <td th:text="${factura.fecha}"></td>
+                        <td th:text="${factura.total}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${facturas == null or facturas.empty}">
+           Sin facturas :( ...
+        </div>
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
