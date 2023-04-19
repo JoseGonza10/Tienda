@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang ="en" xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="" th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css"/>
+    <head th:replace ="layout/plantilla :: head">
+        <title>TechShop</title>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>

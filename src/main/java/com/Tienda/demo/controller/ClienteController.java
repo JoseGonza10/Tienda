@@ -21,6 +21,14 @@ public class ClienteController {
     public String inicio(Model modelo) {
         var clientes = clienteService.getClientes();
         modelo.addAttribute("clientes", clientes);
+        modelo.addAttribute("totalClientes",clientes.size());
+        
+        var totalLimite=0;
+        for (var c:clientes) { 
+            totalLimite+=c.getCredito().getLimite();
+        }
+        modelo.addAttribute("totalLimite",totalLimite);
+        
         return "/cliente/listado";
     }
 

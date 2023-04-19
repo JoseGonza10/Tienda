@@ -1,39 +1,14 @@
 <!DOCTYPE html>
 <html lang ="en" xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="" th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css"/>       
+<head th:replace ="layout/plantilla :: head">
+        <title>TechShop</title>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-        <h1>Inventario</h1>
-        <a th:href="@{/categoria/nuevo}">Nueva categoria</a>
-        <div th:if="${categorias != null and !categorias.empty}">
-            <table border ="1">
-                <thead>
-                    <tr>
-                        <th>Descripcion</th>
-                        <th>¿Activo?</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="categoria : ${categorias}">
-                        <td th:text="${categoria.descripcion}"></td>
-                        <td><input type ="checkbox" name="activa" th:checked="${categoria.activo}" disabled="true"></td>
-                        <td><a th:href="@{/categoria/modificar/} + ${categoria.id_categoria}">Modificar</a></td>
-                        <td><a th:href="@{/categoria/eliminar/} + ${categoria.id_categoria}">Eliminar</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div th:if="${categorias == null or categorias.empty}">
-           ¡No hay categorias para mostrar...
-        </div>
-        </div>
-        <footer th:replace="layout/plantilla :: footer"/>
+<section th:replace="~{categoria/fragmentosCategoria :: botonesAgregar}"/>
+    <section th:replace="~{categoria/fragmentosCategoria :: agregarCategoria}"/> 
+    <section th:replace="~{categoria/fragmentosCategoria :: listadoCategoria}"/>
+    <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
