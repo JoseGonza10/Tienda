@@ -12,13 +12,16 @@
                 <a th:href="@{/}" class="logo nav-link">TechShop</a>
                 <ul class = "nav-menu">
                     <li class="nav-menu-item">
-                        <a th:href ="@{/cliente/listado}">Clientes</a>
+                        <a th:href ="@{/cliente/listado}"
+                           th:text="#{plantilla.clientes}">Clientes</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a th:href ="@{/categoria/listado}">Categorias</a>
+                        <a th:href ="@{/categoria/listado}"
+                           th:text:="#{plantilla.categorias}">Categorias</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a th:href ="@{/articulo/listado}">Articulos</a>
+                        <a th:href ="@{/articulo/listado}"
+                           th:text:="#{plantilla.articulos}">Articulos</a>
                     </li>
                     <li class="nav-menu-item">
                         <a th:href ="@{/factura/listado}">Facturas</a>
@@ -30,7 +33,10 @@
             </nav>
         </header>
         <footer th:fragment="footer" class="footer">
-            <p>Derechos reservados por la Asociación Fidelitas</p>
+            <p>&COPY [[#{plantilla.derechos}]]
+                <a th:href = "@{/(lang=es)}">ES</a>
+                <a th:href="@{/[lang=en]}">EN</a>
+            </p>
         </footer>
     </body>
 </html>
